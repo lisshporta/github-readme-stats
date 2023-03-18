@@ -88,17 +88,15 @@ const calculateRank = ({
   ) / 100;
 
   const normalizedScore = normalcdf(score, TOTAL_VALUES, ALL_OFFSETS) * 100;
-// Remove User rank , uncomment to display the rank again 
-//   const level = (() => {
-//     if (normalizedScore < RANK_S_VALUE) return "S+";
-//     if (normalizedScore < RANK_DOUBLE_A_VALUE) return "S";
-//     if (normalizedScore < RANK_A2_VALUE) return "A++";
-//     if (normalizedScore < RANK_A3_VALUE) return "A+";
-//     return "B+";
-//   })();
+  const level = (() => {
+    if (normalizedScore < RANK_S_VALUE) return "S+";
+    if (normalizedScore < RANK_DOUBLE_A_VALUE) return "S";
+    if (normalizedScore < RANK_A2_VALUE) return "A++";
+    if (normalizedScore < RANK_A3_VALUE) return "A+";
+    return "B+";
+  })();
 
-//   return { level, score: normalizedScore };
-// _______
+  return { level, score: normalizedScore };
 };
 
 export { calculateRank };
